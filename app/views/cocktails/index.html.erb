@@ -1,14 +1,31 @@
-<h1> Cocktails List</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path 'bar', height: 300, width: 400, crop: :fill %>')">
 
-<ul><% @cocktails.each do |cocktail| %>
-<li><%= link_to cocktail.name, cocktail_path(cocktail) %>
-<% if !cocktail.photo.blank? %>
-  <%= cl_image_tag(cocktail.photo, width: 150, height: 150, crop: :thumb) %>
-<% end %>
-</li>
-<% end %>
-</ul>
+  <h1 class="text-center" > Cocktails List</h1>
 
-<p><%= link_to "Create a new cocktail", new_cocktail_path %></p>
+  <div class="new-cocktail">
+    <p><%= link_to "Create a new cocktail", new_cocktail_path %></p>
+  </div>
+
+</div>
+
+<div class="content" list-style-type: none>
+    <ul><% @cocktails.each do |cocktail| %>
+      <div class="card-category">
+        <li><%= link_to cocktail.name, cocktail_path(cocktail) %>
+        <% unless cocktail.photo.blank? %>
+          <%= cl_image_tag(cocktail.photo, width: 150, height: 150, crop: :thumb) %>
+        <% end %>
+        </li>
+        <% end %>
+
+      </div>
+    </ul>
+</div>
+
+
+
+
+
 
 
